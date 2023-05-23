@@ -4,29 +4,30 @@ tempConversion::tempConversion(char S, char C, long double sV) {
 	switch (S) {
 	case 'F':
 		if (C == 'C') {
-			FahrenheitToCelsius(sV);
+			convertedValue = FahrenheitToCelsius(sV);
 		}
 		else {
-			FahrenheitToKelvin(sV);
+			convertedValue = FahrenheitToKelvin(sV);
 		}
 		break;
 	case 'C':
 		if (C == 'F') {
-			CelsiusToFahrenheit(sV);
+			convertedValue = CelsiusToFahrenheit(sV);
 		}
 		else {
-			CelsiusToKelvin(sV);
+			convertedValue = CelsiusToKelvin(sV);
 		}
 		break;
 	case 'K':
 		if (C == 'F') {
-			KelvinToFahrenheit(sV);
+			convertedValue = KelvinToFahrenheit(sV);
 		}
 		else {
-			KelvinToCelsius(sV);
+			convertedValue = KelvinToCelsius(sV);
 		}
 		break;
 	}
+
 }
 
 long double tempConversion::FahrenheitToCelsius(long double F) {
@@ -51,4 +52,8 @@ long double tempConversion::FahrenheitToKelvin(long double F) {
 
 long double tempConversion::KelvinToFahrenheit(long double K) {
 	return ((K - 273.15) * 9 / 5 + 32);
+}
+
+long double tempConversion::getConvertedValue() {
+	return convertedValue;
 }

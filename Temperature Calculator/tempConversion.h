@@ -2,6 +2,10 @@
 
 class tempConversion {
 private:
+
+	long double convertedValue;
+
+
 	long double FahrenheitToCelsius(long double);
 	long double CelsiusToFahrenheit(long double);
 	long double KelvinToCelsius(long double);
@@ -11,4 +15,5 @@ private:
 
 public:
 	tempConversion(char S, char C, long double sV);
+	long double getConvertedValue();
 };
