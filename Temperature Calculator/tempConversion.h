@@ -2,16 +2,13 @@
 
 class tempConversion {
 private:
-	long double F, C, K;
-
-	long double FahrenheitToCelsius();
-	long double CelsiusToFahrenheit();
-	long double KelvinToCelsius();
-	long double CelsiusToKelvin();
+	long double FahrenheitToCelsius(long double);
+	long double CelsiusToFahrenheit(long double);
+	long double KelvinToCelsius(long double);
+	long double CelsiusToKelvin(long double);
+	long double FahrenheitToKelvin(long double);
+	long double KelvinToFahrenheit(long double);
 
 public:
-	tempConversion(char S, long double sV);
-	long double getFahrenheit();
-	long double getCelsius();
-	long double getKelvin();
+	tempConversion(char S, char C, long double sV);
 };

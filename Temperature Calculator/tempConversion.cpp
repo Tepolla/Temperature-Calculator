@@ -1,49 +1,54 @@
 #include "tempConversion.h"
 
-tempConversion::tempConversion(char S, long double sV) {
+tempConversion::tempConversion(char S, char C, long double sV) {
 	switch (S) {
 	case 'F':
-		this->F = sV;
-		this->C = FahrenheitToCelsius();
-		this->K = CelsiusToKelvin();
+		if (C == 'C') {
+			FahrenheitToCelsius(sV);
+		}
+		else {
+			FahrenheitToKelvin(sV);
+		}
 		break;
 	case 'C':
-		this->C = sV;
-		this->F = CelsiusToFahrenheit();
-		this->K = CelsiusToKelvin();
+		if (C == 'F') {
+			CelsiusToFahrenheit(sV);
+		}
+		else {
+			CelsiusToKelvin(sV);
+		}
 		break;
 	case 'K':
-		this->K = sV;
-		this->C = KelvinToCelsius();
-		this->F = CelsiusToFahrenheit();
+		if (C == 'F') {
+			KelvinToFahrenheit(sV);
+		}
+		else {
+			KelvinToCelsius(sV);
+		}
 		break;
 	}
 }
 
-long double tempConversion::FahrenheitToCelsius() {
-	return ((this->F - 32) * 5) / 9;
+long double tempConversion::FahrenheitToCelsius(long double F) {
+	return ((F - 32) * 5) / 9;
 }
 
-long double tempConversion::CelsiusToFahrenheit() {
-	return ((this->C * 9) / 5) + 32;
+long double tempConversion::CelsiusToFahrenheit(long double C) {
+	return ((C * 9) / 5) + 32;
 }
 
-long double tempConversion::KelvinToCelsius() {
-	return (this->K - 273.15);
+long double tempConversion::KelvinToCelsius(long double K) {
+	return (K - 273.15);
 }
 
-long double tempConversion::CelsiusToKelvin() {
-	return (this->C + 273.15);
+long double tempConversion::CelsiusToKelvin(long double C) {
+	return (C + 273.15);
 }
 
-long double tempConversion::getFahrenheit() {
-	return this->F;
+long double tempConversion::FahrenheitToKelvin(long double F) {
+	return ((F - 32) * 5 / 9 + 273.15);
 }
 
-long double tempConversion::getCelsius() {
-	return (this->C);
-}
-
-long double tempConversion::getKelvin() {
-	return this->K;
+long double tempConversion::KelvinToFahrenheit(long double K) {
+	return ((K - 273.15) * 9 / 5 + 32);
 }

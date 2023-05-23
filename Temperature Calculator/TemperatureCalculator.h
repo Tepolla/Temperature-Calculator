@@ -17,4 +17,6 @@ private slots:
 
 private:
     Ui::TemperatureCalculatorClass ui;
+    char StartingUnit;
+    char ConversionUnit;
 };
