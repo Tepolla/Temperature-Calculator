@@ -8,12 +8,12 @@ class TemperatureCalculator : public QMainWindow
     Q_OBJECT
 
 public:
-    TemperatureCalculator(QWidget *parent = nullptr);
+    TemperatureCalculator(QWidget* parent = nullptr);
     ~TemperatureCalculator();
     QPushButton* createButton(QWidget* parent);
 
 private slots:
-    void onButtonClicked(QPushButton* button);
+    void onButtonClicked();
 
 private:
     Ui::TemperatureCalculatorClass ui;

@@ -14,6 +14,6 @@ private:
 	long double KelvinToFahrenheit(long double);
 
 public:
-	tempConversion(char S, char C, long double sV);
+	tempConversion(char, char, long double);
 	long double getConvertedValue();
 };

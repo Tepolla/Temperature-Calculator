@@ -1,31 +1,34 @@
 #include "tempConversion.h"
 
 tempConversion::tempConversion(char S, char C, long double sV) {
-	switch (S) {
-	case 'F':
-		if (C == 'C') {
-			convertedValue = FahrenheitToCelsius(sV);
+	if (S != '\0' && C != '\0') {
+
+		switch (S) {
+		case 'F':
+			if (C == 'C') {
+				convertedValue = FahrenheitToCelsius(sV);
+			}
+			else {
+				convertedValue = FahrenheitToKelvin(sV);
+			}
+			break;
+		case 'C':
+			if (C == 'F') {
+				convertedValue = CelsiusToFahrenheit(sV);
+			}
+			else {
+				convertedValue = CelsiusToKelvin(sV);
+			}
+			break;
+		case 'K':
+			if (C == 'F') {
+				convertedValue = KelvinToFahrenheit(sV);
+			}
+			else {
+				convertedValue = KelvinToCelsius(sV);
+			}
+			break;
 		}
-		else {
-			convertedValue = FahrenheitToKelvin(sV);
-		}
-		break;
-	case 'C':
-		if (C == 'F') {
-			convertedValue = CelsiusToFahrenheit(sV);
-		}
-		else {
-			convertedValue = CelsiusToKelvin(sV);
-		}
-		break;
-	case 'K':
-		if (C == 'F') {
-			convertedValue = KelvinToFahrenheit(sV);
-		}
-		else {
-			convertedValue = KelvinToCelsius(sV);
-		}
-		break;
 	}
 
 }
