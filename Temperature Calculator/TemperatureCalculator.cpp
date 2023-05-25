@@ -64,14 +64,16 @@ void TemperatureCalculator::onButtonClicked()
             ui.KButton->setStyleSheet("QPushButton { background-color: gray; }");
         }
 
-        if (StartingUnit == ConversionUnit) {
-            QString convertedValue = QString::number(value, 'g', 15);
-            ui.ConvertedValueLabel->setText(convertedValue);
-        }
-        else {
-            tempConversion tC(StartingUnit, ConversionUnit, value);
-            QString convertedValue = QString::number(tC.getConvertedValue(), 'g', 15);
-            ui.ConvertedValueLabel->setText(convertedValue);
+        if (StartingUnit != '\0' && ConversionUnit != '\0') {
+            if (StartingUnit == ConversionUnit) {
+                QString convertedValue = QString::number(value, 'g', 15);
+                ui.ConvertedValueLabel->setText(convertedValue);
+            }
+            else {
+                tempConversion tC(StartingUnit, ConversionUnit, value);
+                QString convertedValue = QString::number(tC.getConvertedValue(), 'g', 15);
+                ui.ConvertedValueLabel->setText(convertedValue);
+            }
         }
     }
 }
